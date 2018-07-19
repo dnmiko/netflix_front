@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import logo from './logo.png';
 import './App.css';
-import Signup from './components/Signup/Signup';
+import Routes from './Routes';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Signup />
+        <Routes />
       </div>
     );
   }

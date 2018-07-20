@@ -3,8 +3,8 @@ import './style.css';
 import signup from '../../services/signup';
 
 class Signup extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             name: "",
             last_name: "",

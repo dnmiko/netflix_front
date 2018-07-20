@@ -6,6 +6,7 @@ class Nav extends Component {
     constructor() {
         super();
     }
+
     render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">

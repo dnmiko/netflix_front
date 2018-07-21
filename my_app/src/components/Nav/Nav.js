@@ -6,7 +6,7 @@ import {
     Link
 } from 'react-router-dom';
 import payload from '../../resolvers/payload';
-import checkToken from '../resolvers/checkToken';
+import checkToken from '../../resolvers/checkToken';
 
 class Nav extends Component {
     constructor() {
@@ -14,6 +14,7 @@ class Nav extends Component {
     }
 
     chargeProfile = () => {
+        console.log(localStorage.getItem('token'));
         if (checkToken()) {
             const token = localStorage.getItem('token');
             let pl = payload(token);
@@ -28,14 +29,15 @@ class Nav extends Component {
                 </ul>
             )
         } else {
-            return (<ul className="navbar-nav" >
-                <li className="nav-item" >
-                    <Link className="nav-link" to="/login"> Login </Link>
-                </li>
-                <li className="nav-item" >
-                    <Link className="nav-link" to="/signup"> Signup </Link>
-                </li>
-            </ul>
+            return (
+                <ul className="navbar-nav" >
+                    <li className="nav-item" >
+                        <Link className="nav-link" to="/login"> Login </Link>
+                    </li>
+                    <li className="nav-item" >
+                        <Link className="nav-link" to="/signup"> Signup </Link>
+                    </li>
+                </ul>
             )
         }
     }

@@ -28,7 +28,7 @@ class Movies extends Component {
         if (this.state.movies !== "") {
             let movies = this.state.movies.map((movie, index) => {
                 return (
-                    <div className="card" style={{ width: "14rem;" }} key={index}>
+                    <div className="card" style={{ width: "14rem;" }} key={index} onClick={() => this.props.history.push(`/movie/${movie._id}`)}>
                         <h5 className="card-title">{movie.name}</h5>
                         <div className="card-body">
                             <p className="card-text">{movie.plot}</p>

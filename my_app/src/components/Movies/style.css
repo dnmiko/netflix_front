@@ -97,7 +97,7 @@
 
 .anticon:before {
     display: block;
-    font-family: "anticon" !important;
+    font-family: "anticon";
 }
 
 .anticon-star:before {

@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import allMovies from '../../services/allMovies';
 import './style.css';
 import Rate from 'rc-rate';
-
-
+import addRate from '../../services/addRate';
+import MovieCard from '../MovieCard/MovieCard';
 
 class Movies extends Component {
     constructor() {
-        super()
+        super();
         this.state = { movies: "" }
-
     }
 
     componentDidMount() {
@@ -21,7 +20,16 @@ class Movies extends Component {
         }).catch((err) => {
             console.log(err)
         })
+    }
 
+    redirect = (id) => {
+        this.props.history.push(`/movie/${id}`);
+    }
+
+    getRateValue = (id, rate) => {
+        addRate({ id, rate }).then((resp) => {
+            console.log(resp);
+        })
     }
 
     renderMovies = () => {
@@ -29,13 +37,7 @@ class Movies extends Component {
         if (this.state.movies !== "") {
             let movies = this.state.movies.map((movie, index) => {
                 return (
-                    <div className="card" style={{ width: "14rem;" }} key={index} onClick={() => this.props.history.push(`/movie/${movie._id}`)}>
-                        <h5 className="card-title">{movie.name}</h5>
-                        <div className="card-body">
-                            <p className="card-text">{movie.plot}</p>
-                            <Rate count={5} defaultValue={3.5} allowHalf={true} />
-                        </div>
-                    </div>
+                    <MovieCard movie={movie} redirect={this.redirect} getRate={this.getRateValue} />
                 )
             })
             return movies

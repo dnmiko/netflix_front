@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import allMovies from '../../services/allMovies';
-import './style.css'
+import './style.css';
+import Rate from 'rc-rate';
 
 
 
@@ -32,6 +33,7 @@ class Movies extends Component {
                         <h5 className="card-title">{movie.name}</h5>
                         <div className="card-body">
                             <p className="card-text">{movie.plot}</p>
+                            <Rate count={5} defaultValue={3.5} allowHalf={true} />
                         </div>
                     </div>
                 )
